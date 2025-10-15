@@ -1,0 +1,113 @@
+body {
+  background: #8cc461;
+}
+.App {
+  min-height: 100vh;
+  background: #8cc461;
+  text-align: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 3rem 1rem 3rem;
+  height: 100vh;
+}
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.playing-area {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.pick-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.picked {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin-bottom: 30px;
+}
+.picked .circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.picked .rock {
+  border: 12px solid #0074b6;
+}
+.picked .paper {
+  border: 12px solid #ffa943;
+}
+.picked .scissors {
+  border: 12px solid #bd00ff;
+}
+.result-text h2 {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.play-again-btn {
+  background: #fff;
+  color: #8cc461;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.play-again-btn:hover {
+  background: #8cc461;
+  color: #fff;
+}
+footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+}
+footer > button {
+  border: 2px solid white;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 21px;
+  width: 119px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer > button:hover {
+  background: white;
+  color: #656565;
+}
