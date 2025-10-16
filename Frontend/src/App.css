@@ -31,8 +31,8 @@ body {
   width: 100%;
   max-width: 1200px;
   height: 100vh;
-  border: white solid 8px;
-  border-radius: 20px;
+  /* border: white solid 8px;
+  border-radius: 20px; */
   padding: 40px;
   box-sizing: border-box;
 }
