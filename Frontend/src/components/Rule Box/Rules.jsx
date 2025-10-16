@@ -1,11 +1,24 @@
-import React from 'react'
-import "./Rules.css"
-// import { X } from 'react-feather'
+import React, { useEffect, useRef } from 'react';
+import "./Rules.css";
+
 const Rules = ({ closeRules }) => {
+  const boxRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (boxRef.current && !boxRef.current.contains(event.target)) {
+        closeRules();
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [closeRules]);
+
   return (
-    <>
-    {/* <div className='bg' onClick={closeRules}></div> */}
-      <div className='ruleBox' >
+    <div className='ruleBox-bg'>
+      <div className='ruleBox' ref={boxRef}>
         <div className='rules'>
           <p className='ruleHeading'>Game Rules</p>
           <ul className='rulesList'>
@@ -16,10 +29,9 @@ const Rules = ({ closeRules }) => {
           </ul>
           <span className='cross' onClick={closeRules}>X</span>
         </div>
-        
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default Rules
+export default Rules;

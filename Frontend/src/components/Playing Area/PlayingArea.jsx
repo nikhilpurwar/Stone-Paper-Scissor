@@ -34,9 +34,9 @@ const PlayingArea = ({ onPick, userPick, pcPick, result, onShowRules }) => {
           <button className="play-again-btn" onClick={() => onPick(null)}>REPLAY</button>
         </div>
       )}
-      <footer>
-          <button className="ruleButton" onClick={() => onShowRules()}>RULES</button>
-          <button className='nextButton ruleButton'>Next</button>
+      <footer className='footer'>
+          <button className="footerButton" onClick={() => onShowRules()}>RULES</button>
+          {/* <button className='nextButton footerButton'>Next</button> */}
         </footer>
     </div>
   );

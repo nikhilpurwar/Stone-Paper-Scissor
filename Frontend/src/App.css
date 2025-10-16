@@ -9,20 +9,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 3rem 1rem 3rem;
-  height: 100vh;
+  justify-content: flex-start;
+  padding: 3rem 3rem 3rem 3rem;
+  box-sizing: border-box;
 }
 .main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   width: 100%;
 }
 .playing-area {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  /* margin-bottom: 40px; */
 }
 .pick-area {
   display: flex;
@@ -85,15 +86,17 @@ body {
   background: #8cc461;
   color: #fff;
 }
-footer {
-  position: relative;
+.footer {
+  position: absolute;
+  right: 40px;
+  bottom: 0px;
   width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 2rem;
 }
-footer > button {
+.footerButton {
   border: 2px solid white;
   border-radius: 10px;
   background: transparent;
@@ -107,7 +110,7 @@ footer > button {
   align-items: center;
   justify-content: center;
 }
-footer > button:hover {
+.footerButton:hover {
   background: white;
   color: #656565;
 }

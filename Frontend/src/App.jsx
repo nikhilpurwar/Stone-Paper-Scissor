@@ -8,6 +8,7 @@ import WinScreen from './components/ResultScreens/WinScreen';
 import LoseScreen from './components/ResultScreens/LoseScreen';
 import TieScreen from './components/ResultScreens/TieScreen';
 import HurrayScreen from './components/ResultScreens/HurrayScreen';
+import Loose from './components/ResultScreens/Loose';
 
 
 function getResult(userPick, pcPick) {
@@ -40,7 +41,7 @@ function App() {
   const [userPick, setUserPick] = useState(null);
   const [pcPick, setPcPick] = useState(null);
   const [result, setResult] = useState(null);
-  const [gameState, setGameState] = useState('playing'); // playing, win, lose, tie, hurray
+  const [gameState, setGameState] = useState('playing'); // playing, win, lose, tie
 
   const handlePick = (pick) => {
     const pc = getRandomPick();
@@ -81,7 +82,9 @@ function App() {
   };
 
   const handleNext = () => {
-    setGameState('hurray');
+    // Ensure rules modal is closed before navigating
+    setShowRules(false);
+    userScore >= pcScore ? setGameState('hurray') : setGameState('loose');
   };
 
   return (
@@ -98,9 +101,30 @@ function App() {
           />
         )}
         {gameState === 'win' && (
-          <WinScreen 
-            onPlayAgain={handlePlayAgain} 
+          <WinScreen
+            onPlayAgain={handlePlayAgain}
             onNext={handleNext}
+            userPick={userPick}
+            pcPick={pcPick}
+            userScore={userScore}
+            pcScore={pcScore}
+            onShowRules={() => setShowRules(true)}
+          />
+        )}
+
+        {gameState === 'lose' && (
+          <LoseScreen
+            onPlayAgain={handlePlayAgain}
+            userPick={userPick}
+            pcPick={pcPick}
+            userScore={userScore}
+            pcScore={pcScore}
+            onShowRules={() => setShowRules(true)}
+          />
+        )}
+        {gameState === 'tie' && (
+          <TieScreen
+            onReplay={handlePlayAgain}
             userPick={userPick}
             pcPick={pcPick}
             userScore={userScore}
@@ -111,28 +135,11 @@ function App() {
         {gameState === 'hurray' && (
           <HurrayScreen onPlayAgain={handlePlayAgain} onShowRules={() => setShowRules(true)} />
         )}
-        {gameState === 'lose' && (
-          <LoseScreen 
-            onPlayAgain={handlePlayAgain}
-            userPick={userPick}
-            pcPick={pcPick}
-            userScore={userScore}
-            pcScore={pcScore}
-            onShowRules={() => setShowRules(true)}
-          />
-        )}
-        {gameState === 'tie' && (
-          <TieScreen 
-            onReplay={handlePlayAgain}
-            userPick={userPick}
-            pcPick={pcPick}
-            userScore={userScore}
-            pcScore={pcScore}
-            onShowRules={() => setShowRules(true)}
-          />
+        {gameState === 'loose' && (
+          <Loose onPlayAgain={handlePlayAgain} onShowRules={() => setShowRules(true)} />
         )}
       </div>
-      {showRules && <Rules onClose={() => setShowRules(false)} />}
+      {showRules && <Rules closeRules={() => setShowRules(false)} />}
     </div>
   );
 }
