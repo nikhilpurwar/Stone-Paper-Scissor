@@ -1,18 +1,18 @@
 import React from "react";
-import rockImage from '../../assets/stone.png';
-import paperImage from '../../assets/paper.png';
-import scissorsImage from '../../assets/scissor.png';
+import rockImage from "../../assets/stone.png";
+import paperImage from "../../assets/paper.png";
+import scissorsImage from "../../assets/scissor.png";
 
 const borderColors = {
-    rock: '#0074b6',
-    paper: '#ffa943',
-    scissors: '#bd00ff',
+  rock: "#0074b6",
+  paper: "#ffa943",
+  scissors: "#bd00ff",
 };
 
 const pickIcon = {
-    rock: <img style={{ height: 60, width: 80 }} src={rockImage} alt="Rock" />,
-    paper: <img style={{ height: 80, width: 80 }} src={paperImage} alt="Paper" />,
-    scissors: <img style={{ height: 80, width: 60 }} src={scissorsImage} alt="Scissors" />,
+  rock: <img style={{ height: "60%", width: "60%" }} src={rockImage} alt="Rock" />,
+  paper: <img style={{ height: "70%", width: "70%" }} src={paperImage} alt="Paper" />,
+  scissors: <img style={{ height: "70%", width: "60%" }} src={scissorsImage} alt="Scissors" />,
 };
 
 const showRings = () => (
@@ -24,44 +24,170 @@ const showRings = () => (
 );
 
 const ResultScreenLayout = ({
-    title,
-    subtitle,
-    userPick,
-    pcPick,
-    mainButtonText,
-    onMainButton,
-    showNext,
-    onNext,
-    onShowRules,
+  title,
+  subtitle,
+  userPick,
+  pcPick,
+  mainButtonText,
+  onMainButton,
+  showNext,
+  onNext,
+  onShowRules,
 }) => (
-    <div className="result-screen" style={{ height: '100vh', background: '#8cc461', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-        {/* Picks and result */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'start', marginTop: 60 }}>
-            <div style={{ textAlign: 'center' }}>
-                <div style={{ color: '#fff', fontSize: 18, fontWeight: 500, marginBottom: 30 }}>YOU PICKED</div>
-                <div style={{ position: 'relative', width: 140, height: 140, borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `16px solid ${borderColors[userPick]}` }}>
-                    {title === "YOU WIN" && showRings()}
-                    <span style={{ fontSize: 60, color: '#222' }}>{pickIcon[userPick]}</span>
-                </div>
-            </div>
-            <div style={{ textAlign: 'center', margin: '150px 80px 0', marginTop: 150 }}>
-                <div style={{ color: '#fff', fontSize: 32, fontWeight: 700 }}>{title}<br />{subtitle && <span style={{ fontSize: 20, fontWeight: 500 }}>{subtitle}</span>}</div>
-                <button className="play-again-btn" style={{  width: 180, fontSize: 15, color: '#6B6B6B' }} onClick={onMainButton}>{mainButtonText}</button>
-            </div>
-            <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ color: '#fff', fontSize: 18, fontWeight: 500, marginBottom: 30 }}>PC PICKED</div>
-                <div style={{ position: 'relative', width: 140, height: 140, borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `16px solid ${borderColors[pcPick]}` }}>
-                    {title === "YOU LOST" && showRings()}
-                    <span style={{ fontSize: 60, color: '#222' }}>{pickIcon[pcPick]}</span>
-                </div>
-            </div>
+  <div
+    className="result-screen"
+    style={{
+      background: "#8cc461",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      boxSizing: "border-box",
+      width: '100%',
+    //   height: 'auto',
+    }}
+  >
+    {/* Picks and result */}
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "5vw",
+        textAlign: "center",
+        flexGrow: 1,
+        width: '100%',
+        height: '10vh',
+        boxSizing: 'border-box',
+      }}
+    >
+      {/* User Pick */}
+      <div style={{boxSizing: "border-box"}}>
+        <div
+          style={{
+            color: "#fff",
+            fontSize: "clamp(14px, 2vw, 18px)",
+            fontWeight: 500,
+            marginBottom: "6vh",
+          }}
+        >
+          YOU PICKED
         </div>
-        {/* Footer buttons */}
-        <div style={{ position: 'absolute', bottom: 20, right: 40, width: '100%', display: 'flex', justifyContent: 'flex-end', gap: 20 }}>
-            <button className="footerButton" onClick={onShowRules}>RULES</button>
-            {showNext && <button className="footerButton" onClick={(e) => { e.stopPropagation(); onNext && onNext(); }}>NEXT</button>}
+        <div
+          style={{
+            position: "relative",
+            width: "clamp(90px, 14vw, 140px)",
+            height: "clamp(90px, 14vw, 140px)",
+            borderRadius: "50%",
+            background: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: `clamp(8px, 1.5vw, 16px) solid ${borderColors[userPick]}`,
+            margin: "0 auto",
+          }}
+        >
+          {title === "YOU WIN" && showRings()}
+          {pickIcon[userPick]}
         </div>
+      </div>
+
+      {/* Center Result */}
+      <div style={{marginTop: '6rem'}}>
+        <div
+          style={{
+            color: "#fff",
+            fontSize: "clamp(22px, 4vw, 32px)",
+            fontWeight: 700,
+            marginBottom: "1vh",
+          }}
+        >
+          {title}
+        </div>
+        {subtitle && (
+          <div
+            style={{
+              fontSize: "clamp(14px, 2vw, 18px)",
+              color: "#fff",
+              marginBottom: "2vh",
+            }}
+          >
+            {subtitle}
+          </div>
+        )}
+        <button
+          className="play-again-btn"
+          style={{
+            width: "clamp(120px, 25vw, 180px)",
+            fontSize: "clamp(12px, 1.5vw, 15px)",
+            color: "#6B6B6B",
+          }}
+          onClick={onMainButton}
+        >
+          {mainButtonText}
+        </button>
+      </div>
+
+      {/* PC Pick */}
+      <div>
+        <div
+          style={{
+            color: "#fff",
+            fontSize: "clamp(14px, 2vw, 18px)",
+            fontWeight: 500,
+            marginBottom: "6vh",
+          }}
+        >
+          PC PICKED
+        </div>
+        <div
+          style={{
+            position: "relative",
+            width: "clamp(90px, 14vw, 140px)",
+            height: "clamp(90px, 14vw, 140px)",
+            borderRadius: "50%",
+            background: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: `clamp(8px, 1.5vw, 16px) solid ${borderColors[pcPick]}`,
+            margin: "0 auto",
+          }}
+        >
+          {title === "YOU LOST" && showRings()}
+          {pickIcon[pcPick]}
+        </div>
+      </div>
     </div>
+
+    {/* Footer buttons */}
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems: "center",
+        gap: "2vw",
+        
+        // marginTop: "5vh",
+      }}
+    >
+      <button className="footerButton" onClick={onShowRules}>
+        RULES
+      </button>
+      {showNext && (
+        <button
+          className="footerButton"
+          onClick={(e) => {
+            e.stopPropagation();
+            onNext && onNext();
+          }}
+        >
+          NEXT
+        </button>
+      )}
+    </div>
+  </div>
 );
 
 export default ResultScreenLayout;

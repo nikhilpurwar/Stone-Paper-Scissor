@@ -6,7 +6,7 @@ const Loose = ({ onPlayAgain, onShowRules }) => (
         className="result-screen lose"
         style={{
             justifyContent: "center",
-            height: "100vh",
+            // height: "100vh",
             background: "transparent",
             display: "flex",
             flexDirection: "column",
@@ -15,7 +15,7 @@ const Loose = ({ onPlayAgain, onShowRules }) => (
         }}
     >
         {/* Broken trophy or sad face */}
-        <div style={{ position: "relative", marginBottom: 40 }}>
+        <div style={{ position: "relative", marginBottom: 30, marginTop: 40 }}>
             <span
                 role="img"
                 aria-label="broken-trophy"

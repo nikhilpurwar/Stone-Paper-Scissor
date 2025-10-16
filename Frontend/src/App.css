@@ -1,47 +1,74 @@
+/* 🌿 Base Styling */
 body {
   background: #8cc461;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
+
 .App {
   min-height: 100vh;
   background: #8cc461;
   text-align: center;
-  font-family: 'Montserrat', Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 3rem 3rem 3rem 3rem;
   box-sizing: border-box;
+  overflow-x: hidden;
+  padding: auto 0.2% 10px;
+  width: 100%;
+  
 }
+
+/* 🧱 Main Container */
 .main {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
   width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  border: white solid 8px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
 }
+
+/* 🎮 Game Areas */
 .playing-area {
-  margin-top: 20px;
-  /* margin-bottom: 40px; */
+  flex: 1;
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 .pick-area {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .result-area {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .picked {
   display: flex;
   justify-content: space-around;
   width: 60%;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
+
+/* 🟢 Circle Styles */
 .picked .circle {
   width: 120px;
   height: 120px;
@@ -52,23 +79,36 @@ body {
   justify-content: center;
   font-size: 40px;
   font-weight: bold;
-  margin: 0 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 }
+
+.picked .circle:hover {
+  transform: scale(1.05);
+}
+
 .picked .rock {
   border: 12px solid #0074b6;
 }
+
 .picked .paper {
   border: 12px solid #ffa943;
 }
+
 .picked .scissors {
   border: 12px solid #bd00ff;
 }
+
+/* 🏁 Result Text */
 .result-text h2 {
   font-size: 32px;
   color: #fff;
   margin-bottom: 20px;
+  text-align: center;
 }
+
+/* 🎮 Play Again Button */
 .play-again-btn {
   background: #fff;
   color: #8cc461;
@@ -79,23 +119,27 @@ body {
   font-weight: 600;
   margin: 10px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: background 0.2s, color 0.2s;
 }
+
 .play-again-btn:hover {
   background: #8cc461;
   color: #fff;
 }
+
+/* 🦶 Footer Buttons */
 .footer {
-  position: absolute;
-  right: 40px;
-  bottom: 0px;
   width: 100%;
+  /* max-width: 1200px; */
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 2rem;
+  flex-wrap: wrap;
+  padding: 10px;
 }
+
 .footerButton {
   border: 2px solid white;
   border-radius: 10px;
@@ -109,8 +153,112 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.3s;
 }
+
 .footerButton:hover {
   background: white;
   color: #656565;
+}
+
+/* 📱 Responsive Adjustments */
+
+/* Small Tablets & Large Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .main {
+    padding: 20px;
+    border-width: 6px;
+    height: auto;
+  }
+
+  .picked {
+    width: 80%;
+  }
+
+  .picked .circle {
+    width: 100px;
+    height: 100px;
+    font-size: 32px;
+    margin: 10px;
+  }
+
+  .result-text h2 {
+    font-size: 26px;
+  }
+
+  .play-again-btn {
+    padding: 10px 28px;
+    font-size: 16px;
+  }
+
+  .footer {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footerButton {
+    font-size: 18px;
+    width: 100px;
+    height: 36px;
+  }
+}
+
+/* 📱 Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .main {
+    padding: 10px;
+    border-width: 4px;
+  }
+
+  .picked {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .picked .circle {
+    width: 90px;
+    height: 90px;
+    font-size: 28px;
+    margin: 12px 0;
+  }
+
+  .result-text h2 {
+    font-size: 22px;
+  }
+
+  .play-again-btn {
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footerButton {
+    width: 90px;
+    font-size: 16px;
+    height: 36px;
+  }
+}
+
+/* 💻 Very Large Screens (min-width: 1400px) */
+@media (min-width: 1400px) {
+  .main {
+    max-width: 1400px;
+  }
+
+  .picked .circle {
+    width: 160px;
+    height: 160px;
+    font-size: 48px;
+  }
+
+  .play-again-btn {
+    font-size: 20px;
+    padding: 14px 36px;
+  }
 }

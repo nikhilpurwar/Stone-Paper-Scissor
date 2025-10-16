@@ -1,7 +1,7 @@
 .triangle-container {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: min(90vw, 350px);
+  height: min(90vw, 350px);
   background-color: transparent;
   border-radius: 12px;
   display: flex;
@@ -20,17 +20,21 @@
 
 .triangle-lines line {
   stroke: rgba(0, 0, 0, 0.64);
-  stroke-width: 15;
+  stroke-width: 2rem; /* scales with width */
+  max-stroke-width: 15px;
 }
 
 /* Common circle styles */
 .circle {
   position: absolute;
-  width: 96px;
-  height: 96px;
+  width: 22%;
+  height: 22%;
   background: white;
   border-radius: 50%;
-  border: 16px solid transparent;
+  border: 2rem solid transparent;
+  max-width: 96px;
+  max-height: 96px;
+  max-border-width: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,29 +49,68 @@
 
 /* Top-left circle (Rock) */
 .rock {
-  top: -15px;
-  left: -12px;
+  top: -4%;
+  left: -4%;
   border-color: #0074B6; /* blue */
 }
 
 /* Top-right circle (Scissors) */
 .scissors {
-  top: -14px;
-  right: -12px;
+  top: -4%;
+  right: -4%;
   border-color: #BD00FF; /* purple */
 }
 
 /* Bottom center circle (Paper) */
 .paper {
-  bottom: 15px;
-  left: 49%;
+  bottom: 5%;
+  left: 50%;
   transform: translateX(-50%);
   border-color: #FFA943; /* orange */
 }
 
 /* Icon */
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 40%;
+  height: 40%;
   color: black;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .triangle-container {
+    width: 80vw;
+    height: 80vw;
+    margin-top: 2rem;
+  }
+
+  .circle {
+    width: 26%;
+    height: 26%;
+    border-width: 10px;
+  }
+
+  .icon {
+    width: 35%;
+    height: 35%;
+  }
+}
+
+@media (max-width: 480px) {
+  .triangle-container {
+    width: 85vw;
+    height: 85vw;
+    margin-top: 1.5rem;
+  }
+
+  .circle {
+    width: 30%;
+    height: 30%;
+    border-width: 8px;
+  }
+
+  .icon {
+    width: 32%;
+    height: 32%;
+  }
 }
