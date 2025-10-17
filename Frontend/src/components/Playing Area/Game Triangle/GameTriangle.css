@@ -20,21 +20,18 @@
 
 .triangle-lines line {
   stroke: rgba(0, 0, 0, 0.64);
-  stroke-width: 2rem; /* scales with width */
+  stroke-width: 15px; /* scales with width */
   max-stroke-width: 15px;
 }
 
 /* Common circle styles */
 .circle {
   position: absolute;
-  width: 22%;
-  height: 22%;
+  width: 110px;
+  height: 110px;
   background: white;
   border-radius: 50%;
-  border: 2rem solid transparent;
-  max-width: 96px;
-  max-height: 96px;
-  max-border-width: 16px;
+  border: 16px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;

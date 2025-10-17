@@ -16,17 +16,17 @@ const GameTriangle = ({ onPick }) => {
 
       {/* Rock */}
       <div className="circle rock" onClick={() => onPick('rock')} style={{ cursor: 'pointer' }}>
-        <img src={rockImage} alt="Rock" className="icon" />
+        <img src={rockImage} alt="Rock" className="icon" style={{width: 80, height: 58.51}} />
       </div>
 
       {/* Scissors */}
       <div className="circle scissors" onClick={() => onPick('scissors')} style={{ cursor: 'pointer' }}>
-        <img src={scissorsImage} alt="Scissors" className="icon" />
+        <img src={scissorsImage} alt="Scissors" className="icon" style={{width: 37, height: 53.5}}/>
       </div>
 
       {/* Paper */}
       <div className="circle paper" onClick={() => onPick('paper')} style={{ cursor: 'pointer' }}>
-        <img src={paperImage} alt="Paper" className="icon" />
+        <img src={paperImage} alt="Paper" className="icon" style={{width: 72, height: 72}}/>
       </div>
 
     </div>

@@ -90,7 +90,7 @@ function App() {
   return (
     <div className="App">
       <div className="main">
-        <ScoreCard userScore={userScore} pcScore={pcScore} />
+        {gameState !== 'hurray' && gameState !== 'loose' ? <ScoreCard userScore={userScore} pcScore={pcScore} /> : null}
         {gameState === 'playing' && (
           <PlayingArea
             onPick={handlePick}
@@ -135,9 +135,9 @@ function App() {
         {gameState === 'hurray' && (
           <HurrayScreen onPlayAgain={handlePlayAgain} onShowRules={() => setShowRules(true)} />
         )}
-        {gameState === 'loose' && (
+        {/* {gameState === 'loose' && (
           <Loose onPlayAgain={handlePlayAgain} onShowRules={() => setShowRules(true)} />
-        )}
+        )} */}
       </div>
       {showRules && <Rules closeRules={() => setShowRules(false)} />}
     </div>

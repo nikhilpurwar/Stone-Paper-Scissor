@@ -5,23 +5,95 @@ import scissorsImage from "../../assets/scissor.png";
 
 const borderColors = {
   rock: "#0074b6",
-  paper: "#ffa943",
-  scissors: "#bd00ff",
+  paper: "#FFA943",
+  scissors: "#BD00FF",
 };
 
 const pickIcon = {
-  rock: <img style={{ height: "60%", width: "60%" }} src={rockImage} alt="Rock" />,
-  paper: <img style={{ height: "70%", width: "70%" }} src={paperImage} alt="Paper" />,
-  scissors: <img style={{ height: "70%", width: "60%" }} src={scissorsImage} alt="Scissors" />,
+  rock: <img style={{ height: 58, width: 80 }} src={rockImage} alt="Rock" />,
+  paper: <img style={{ height: 72, width: 72 }} src={paperImage} alt="Paper" />,
+  scissors: <img style={{ height: 53, width: 37 }} src={scissorsImage} alt="Scissors" />,
 };
 
 const showRings = () => (
   <>
-    <div style={{ position: 'absolute', top: -35, left: -35, width: 170, height: 170, border: '20px solid #2E9A25', borderRadius: '50%', background: 'transparent', boxShadow: '0 0 10px #2f9a25ef' }}></div>
-    <div style={{ position: 'absolute', top: -52.69, left: -52.69, width: 210, height: 210, border: '18px solid #2f9a259f', borderRadius: '50%', background: 'transparent', boxShadow: '0 0 10px #2f9a2581' }}></div>
-    <div style={{ position: 'absolute', top: -68, left: -68, width: 245, height: 245, border: '16px solid #2f9a254b', borderRadius: '50%', background: 'transparent', boxShadow: '0 0 10px #2f9a2531' }}></div>
+    <style>{`
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.9; }
+      }
+
+      @keyframes ringOuter {
+        0% { box-shadow: 0 0 10px rgba(46, 154, 37, 0.2); }
+        50% { box-shadow: 0 0 30px rgba(46, 154, 37, 0.5); }
+        100% { box-shadow: 0 0 10px rgba(46, 154, 37, 0.2); }
+      }
+
+      @keyframes ringMiddle {
+        0% { box-shadow: 0 0 10px #2f9a2581; }
+        50% { box-shadow: 0 0 30px #2f9a25b0; }
+        100% { box-shadow: 0 0 10px #2f9a2581; }
+      }
+
+      @keyframes ringInner {
+        0% { box-shadow: 0 0 10px #2f9a25ef; }
+        50% { box-shadow: 0 0 25px #2f9a25ef; }
+        100% { box-shadow: 0 0 10px #2f9a25ef; }
+      }
+    `}</style>
+
+    <div
+      style={{
+        position: "absolute",
+        top: "-28px",
+        left: "-90px",
+        zIndex: 0,
+        animation: "pulse 2s infinite ease-in-out",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: 350,
+          height: 350,
+          background: "rgba(46, 154, 37, 0.39)",
+          borderRadius: "50%",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.13)",
+          animation: "ringOuter 2s infinite ease-in-out",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: 300,
+            height: 300,
+            background: "#1DA82B",
+            borderRadius: "50%",
+            boxShadow: "0 0 10px #2f9a2581",
+            animation: "ringMiddle 2s infinite ease-in-out",
+          }}
+        >
+          <div
+            style={{
+              width: 250,
+              height: 250,
+              background: "#2E9A25",
+              borderRadius: "50%",
+              boxShadow: "0 0 10px #2f9a25ef",
+              animation: "ringInner 2s infinite ease-in-out",
+            }}
+          ></div>
+        </div>
+      </div>
+    </div>
   </>
 );
+
 
 const ResultScreenLayout = ({
   title,
@@ -43,7 +115,7 @@ const ResultScreenLayout = ({
       alignItems: "center",
       boxSizing: "border-box",
       width: '100%',
-    //   height: 'auto',
+      //   height: 'auto',
     }}
   >
     {/* Picks and result */}
@@ -62,13 +134,15 @@ const ResultScreenLayout = ({
       }}
     >
       {/* User Pick */}
-      <div style={{boxSizing: "border-box"}}>
+      <div style={{ boxSizing: "border-box", position: 'relative' }}>
         <div
           style={{
+            position: "relative",
             color: "#fff",
             fontSize: "clamp(14px, 2vw, 18px)",
             fontWeight: 500,
             marginBottom: "6vh",
+            zIndex: 1,
           }}
         >
           YOU PICKED
@@ -83,17 +157,19 @@ const ResultScreenLayout = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            border: `clamp(8px, 1.5vw, 16px) solid ${borderColors[userPick]}`,
+            border: `16px solid ${borderColors[userPick]}`,
             margin: "0 auto",
+            zIndex: 1,
           }}
         >
-          {title === "YOU WIN" && showRings()}
+
           {pickIcon[userPick]}
         </div>
+        {title === "YOU WIN" && showRings()}
       </div>
 
       {/* Center Result */}
-      <div style={{marginTop: '6rem'}}>
+      <div style={{ marginTop: '6rem' }}>
         <div
           style={{
             color: "#fff",
@@ -129,13 +205,15 @@ const ResultScreenLayout = ({
       </div>
 
       {/* PC Pick */}
-      <div>
+      <div style={{ boxSizing: "border-box", position: 'relative' }}>
         <div
           style={{
+            position: "relative",
             color: "#fff",
             fontSize: "clamp(14px, 2vw, 18px)",
             fontWeight: 500,
             marginBottom: "6vh",
+            zIndex: 1,
           }}
         >
           PC PICKED
@@ -150,13 +228,14 @@ const ResultScreenLayout = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            border: `clamp(8px, 1.5vw, 16px) solid ${borderColors[pcPick]}`,
+            border: `16px solid ${borderColors[userPick]}`,
             margin: "0 auto",
+            zIndex: 1,
           }}
         >
-          {title === "YOU LOST" && showRings()}
           {pickIcon[pcPick]}
         </div>
+        {title === "YOU LOST" && showRings()}
       </div>
     </div>
 
@@ -168,7 +247,7 @@ const ResultScreenLayout = ({
         justifyContent: "flex-end",
         alignItems: "center",
         gap: "2vw",
-        
+
         // marginTop: "5vh",
       }}
     >
