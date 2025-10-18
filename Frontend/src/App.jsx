@@ -4,11 +4,11 @@ import Rules from './components/Rule Box/Rules';
 import ScoreCard from './components/Score Card/ScoreCard';
 import PlayingArea from './components/Playing Area/PlayingArea';
 
-import WinScreen from './components/ResultScreens/WinScreen';
-import LoseScreen from './components/ResultScreens/LoseScreen';
-import TieScreen from './components/ResultScreens/TieScreen';
-import HurrayScreen from './components/ResultScreens/HurrayScreen';
-import Loose from './components/ResultScreens/Loose';
+import WinScreen from './components/Playing Area/ResultScreens/WinScreen';
+import LoseScreen from './components/Playing Area/ResultScreens/LoseScreen';
+import TieScreen from './components/Playing Area/ResultScreens/TieScreen';
+import HurrayScreen from './components/Playing Area/ResultScreens/HurrayScreen';
+import Loose from './components/Playing Area/ResultScreens/Loose';
 
 
 function getResult(userPick, pcPick) {

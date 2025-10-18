@@ -1,6 +1,6 @@
 import React from "react";
-import ResultScreenLayout from "../common/ResultScreenLayout";
-import "./ResultScreens.css";
+import ResultScreenLayout from "../ResultScreenLayout";
+// import "./ResultScreens.css";
 
 const LoseScreen = ({ onPlayAgain, userPick, pcPick, userScore, pcScore, onShowRules }) => (
   <ResultScreenLayout

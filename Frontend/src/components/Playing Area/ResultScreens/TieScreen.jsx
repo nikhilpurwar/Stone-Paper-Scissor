@@ -1,6 +1,6 @@
 import React from "react";
-import ResultScreenLayout from "../common/ResultScreenLayout";
-import "./ResultScreens.css";
+import ResultScreenLayout from "../ResultScreenLayout";
+// import "./ResultScreens.css";
 
 const TieScreen = ({ onReplay, userPick, pcPick, onShowRules }) => (
   <ResultScreenLayout

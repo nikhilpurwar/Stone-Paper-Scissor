@@ -1,4 +1,4 @@
-/* 🌿 Base Styling */
+/* Base Styling */
 body {
   background: #8cc461;
   margin: 0;
@@ -21,7 +21,7 @@ body {
   
 }
 
-/* 🧱 Main Container */
+/* Main Container */
 .main {
   position: relative;
   display: flex;
@@ -37,7 +37,7 @@ body {
   box-sizing: border-box;
 }
 
-/* 🎮 Game Areas */
+/* Game Areas */
 .playing-area {
   flex: 1;
   width: 100%;
@@ -61,6 +61,16 @@ body {
   justify-content: center;
 }
 
+.result-screen {
+  display: flex;                      
+  flex-direction: column;      
+  align-items: center;              
+  justify-content: center;           
+  height: 70vh;                      
+  background: #8cc461;              
+  color: #fff;                      
+}
+
 .picked {
   display: flex;
   justify-content: space-around;
@@ -69,7 +79,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* 🟢 Circle Styles */
+/* Circle Styles */
 .picked .circle {
   width: 120px;
   height: 120px;
@@ -101,7 +111,7 @@ body {
   border: 12px solid #bd00ff;
 }
 
-/* 🏁 Result Text */
+/* Result Text */
 .result-text h2 {
   font-size: 32px;
   color: #fff;
@@ -109,7 +119,7 @@ body {
   text-align: center;
 }
 
-/* 🎮 Play Again Button */
+/* Play Again Button */
 .play-again-btn {
   background: #fff;
   color: #8cc461;
@@ -129,7 +139,7 @@ body {
   color: #fff;
 }
 
-/* 🦶 Footer Buttons */
+/* Footer Buttons */
 .footer {
   width: 100%;
   /* max-width: 1200px; */
@@ -162,7 +172,7 @@ body {
   color: #656565;
 }
 
-/* 📱 Responsive Adjustments */
+/* Responsive Adjustments */
 
 /* Small Tablets & Large Phones (max-width: 768px) */
 @media (max-width: 768px) {
@@ -204,7 +214,7 @@ body {
   }
 }
 
-/* 📱 Mobile Devices (max-width: 480px) */
+/* Mobile Devices (max-width: 480px) */
 @media (max-width: 480px) {
   .main {
     padding: 10px;
@@ -246,7 +256,7 @@ body {
   }
 }
 
-/* 💻 Very Large Screens (min-width: 1400px) */
+/* Very Large Screens (min-width: 1400px) */
 @media (min-width: 1400px) {
   .main {
     max-width: 1400px;

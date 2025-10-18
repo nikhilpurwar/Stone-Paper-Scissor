@@ -1,5 +1,5 @@
 import React from "react";
-import "./ResultScreens.css";
+// import "./ResultScreens.css";
 
 const Loose = ({ onPlayAgain, onShowRules }) => (
     <div

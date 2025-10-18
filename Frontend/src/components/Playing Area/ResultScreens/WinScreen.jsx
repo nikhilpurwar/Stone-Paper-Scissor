@@ -1,6 +1,5 @@
 import React from "react";
-import ResultScreenLayout from "../common/ResultScreenLayout";
-import "./ResultScreens.css";
+import ResultScreenLayout from "../ResultScreenLayout";
 
 const WinScreen = ({ onPlayAgain, onNext, userPick, pcPick, userScore, pcScore, onShowRules }) => (
   <ResultScreenLayout

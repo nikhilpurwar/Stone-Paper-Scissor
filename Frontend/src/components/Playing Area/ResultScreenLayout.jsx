@@ -10,9 +10,9 @@ const borderColors = {
 };
 
 const pickIcon = {
-  rock: <img style={{ height: 58, width: 80 }} src={rockImage} alt="Rock" />,
-  paper: <img style={{ height: 72, width: 72 }} src={paperImage} alt="Paper" />,
-  scissors: <img style={{ height: 53, width: 37 }} src={scissorsImage} alt="Scissors" />,
+  rock: <img style={{ height: 58, width: 80, loading: 'lazy' }} src={rockImage} alt="Rock" />,
+  paper: <img style={{ height: 72, width: 72, loading: 'lazy' }} src={paperImage} alt="Paper" />,
+  scissors: <img style={{ height: 53, width: 37, loading: 'lazy' }} src={scissorsImage} alt="Scissors" />,
 };
 
 const showRings = () => (

@@ -1,6 +1,6 @@
 import React from "react";
-import "./ResultScreens.css";
-import trophy from "../../assets/trophy.png";
+// import "./ResultScreens.css";
+import trophy from "../../../assets/trophy.png";
 
 const HurrayScreen = ({ onPlayAgain, onShowRules }) => (
   <div className="result-screen win" style={{ height: '100vh', width: '100%', background: 'transparent', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box' }}>
