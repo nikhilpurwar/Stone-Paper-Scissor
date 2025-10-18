@@ -47,20 +47,20 @@
 /* Top-left circle (Rock) */
 .rock {
   top: -4%;
-  left: -4%;
+  left: -3%;
   border-color: #0074B6; /* blue */
 }
 
 /* Top-right circle (Scissors) */
 .scissors {
   top: -4%;
-  right: -4%;
+  right: -3%;
   border-color: #BD00FF; /* purple */
 }
 
 /* Bottom center circle (Paper) */
 .paper {
-  bottom: 5%;
+  bottom: 6%;
   left: 50%;
   transform: translateX(-50%);
   border-color: #FFA943; /* orange */
